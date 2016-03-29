@@ -31,8 +31,8 @@ if (!class_exists('FilterASCII85', false)) {
     class FilterASCII85 {
         
         function error($msg) {
-            die($msg);
-        }
+            throw new \Exception('<b>PDF-Filter ASCI Error:</b> ' . $msg);
+         }
         
         function decode($in) {
             $out = '';

@@ -243,10 +243,10 @@ class TTFParser
 	function Error($msg)
 	{
 		if(PHP_SAPI=='cli')
-			die("Error: $msg\n");
+                    throw new \Exception('<b>PDF-Cli Error:</b> ' . $msg);
 		else
-			die("<b>Error</b>: $msg");
-	}
+	            throw new \Exception('<b>PDF Error:</b> ' . $msg);
+ 	}
 
 	function Seek($tag)
 	{

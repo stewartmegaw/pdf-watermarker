@@ -358,7 +358,7 @@ if(PHP_SAPI=='cli')
 {
 	// Command-line interface
 	if($argc==1)
-		die("Usage: php makefont.php fontfile [enc] [embed]\n");
+            throw new \Exception('Usage: php makefont.php fontfile [enc] [embed]\n ' . $msg);
 	$fontfile = $argv[1];
 	if($argc>=3)
 		$enc = $argv[2];

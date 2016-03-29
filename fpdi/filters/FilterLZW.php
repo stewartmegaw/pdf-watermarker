@@ -33,7 +33,7 @@ if (!class_exists('FilterLZW', false)) {
         var $andTable = array(511, 1023, 2047, 4095);
     
         function error($msg) {
-            die($msg);
+            throw new \Exception('<b>PDF-Filter LZW Error:</b> ' . $msg);
         }
         
         /**
