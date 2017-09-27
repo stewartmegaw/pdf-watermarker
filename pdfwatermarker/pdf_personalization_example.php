@@ -17,6 +17,22 @@ class FPDI_AppendWithWatermark extends FPDI_with_annots {
             $this->SetFont('Arial', '', 8);
             $this->Cell(0, 5, utf8_decode($message),'',1,'L');
             $this->Rotate(0); // outputs Q to balance "q" added by the previous call to Rotate
+            
+            // Left
+            $this->SetXY(2,200);
+            $this->Rotate(90);
+            $this->SetTextColor(102, 102, 102);
+            $this->SetFont('Arial', '', 8);
+            $this->Cell(0, 5, utf8_decode($message),'',1,'L');
+            $this->Rotate(0); // outputs Q to balance "q" added by the previous call to Rotate
+            
+            // Right
+            $this->SetXY(-6,200);
+            $this->Rotate(90);
+            $this->SetTextColor(102, 102, 102);
+            $this->SetFont('Arial', '', 8);
+            $this->Cell(0, 5, utf8_decode($message),'',1,'L');
+            $this->Rotate(0); // outputs Q to balance "q" added by the previous call to Rotate
         }
     }
    
