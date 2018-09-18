@@ -94,20 +94,9 @@ class FPDI_AppendWithWatermark extends AlphaPDF {
             $this->Cell(0, 5, utf8_decode($message), '', 1, 'L');
             $this->Rotate(0); // outputs Q to balance "q" added by the previous call to Rotate
 
+
             if (!empty($largeMessage)) {
-                $this->SetXY(30, 160);
-                $this->Rotate(45);
-                $this->setAlpha(0.35);
-                $this->SetTextColor(200, 200, 200);
-                $this->SetFont('Arial', '', 100);
-                $this->Cell(0, 5, utf8_decode($largeMessage), '', 1, 'L');
-                
-                $this->SetXY(30, 280);
-                $this->Rotate(45);
-                $this->setAlpha(0.35);
-                $this->SetTextColor(200, 200, 200);
-                $this->SetFont('Arial', '', 100);
-                $this->Cell(0, 5, utf8_decode($largeMessage), '', 1, 'L');
+                $this->Image('./data/assets/watermark.png', 0, 0, $this->w, $this->h);
             }
         }
     }
