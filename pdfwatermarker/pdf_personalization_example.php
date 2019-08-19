@@ -64,21 +64,25 @@ class FPDI_AppendWithWatermark extends AlphaPDF {
 
     var $angle = 0;
 
-    function AppendPDFWithWatermarkMessage($file, $message, $largeMessage = '') {
+    function AppendPDFWithWatermarkMessage($file, $message, $largeMessage = '', $top = true) {
         $pagecount = $this->setSourceFile($file);
         for ($i = 1; $i <= $pagecount; $i++) {
             $tplidx = $this->ImportPage($i);
             $s = $this->getTemplatesize($tplidx);
             $this->AddPage('P', array($s['w'], $s['h']));
             $this->useTemplate($tplidx);
-            // watermark (a message printed vertically along the left margin)
-            $this->SetAutoPageBreak(FALSE);
-            $this->SetXY(50, -5);
-            $this->Rotate(0);
-            $this->SetTextColor(102, 102, 102);
-            $this->SetFont('Arial', '', 8);
-            $this->Cell(0, 5, utf8_decode($message), '', 1, 'L');
-            $this->Rotate(0); // outputs Q to balance "q" added by the previous call to Rotate
+            
+            if($top) {
+                // watermark (a message printed vertically along the left margin)
+                $this->SetAutoPageBreak(FALSE);
+                $this->SetXY(50, -5);
+                $this->Rotate(0);
+                $this->SetTextColor(102, 102, 102);
+                $this->SetFont('Arial', '', 8);
+                $this->Cell(0, 5, utf8_decode($message), '', 1, 'L');
+                $this->Rotate(0); // outputs Q to balance "q" added by the previous call to Rotate
+            }
+           
             // Left
             $this->SetXY(2, 200);
             $this->Rotate(90);
