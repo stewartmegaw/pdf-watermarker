@@ -69,7 +69,7 @@ class FPDI_AppendWithWatermark extends AlphaPDF {
         for ($i = 1; $i <= $pagecount; $i++) {
             $tplidx = $this->ImportPage($i);
             $s = $this->getTemplatesize($tplidx);
-            $this->AddPage('P', array($s['w'], $s['h']));
+            $this->AddPage($s['w'] > $s['h'] ? 'L' : 'P', array($s['w'], $s['h']));
             $this->useTemplate($tplidx);
             
             if($top) {
