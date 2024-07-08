@@ -100,7 +100,7 @@ class FPDI_AppendWithWatermark extends AlphaPDF {
 
 
             if (!empty($largeMessage)) {
-                $this->Image('./data/assets/watermark.png', 0, 0, $this->w, $this->h);
+                $this->Image('./assets/watermark.png', 0, 0, $this->w, $this->h);
             }
         }
     }
